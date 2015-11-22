@@ -33,7 +33,6 @@ class StringsUtilsTest extends Specification {
       null       | null
   }
 
-  @IgnoreRest
   def "delete duplicates works as expected"() {
     given:
       StringsUtils stringsUtils = new StringsUtils()
@@ -48,6 +47,42 @@ class StringsUtilsTest extends Specification {
       "aabbcc"  | ""
       "ababa"   | ""
       "aabxbcc" | "x"
+  }
+
+  def "isAnagram works as expected"() {
+    given:
+      StringsUtils stringsUtils = new StringsUtils()
+      boolean isAnagram = stringsUtils.isAnagram(s1, s2)
+    expect:
+      isAnagram == expected
+    where:
+      s1                   | s2                   | expected
+      "anita lava la tina" | "lava la tina anita" | true
+      "toga"               | "gatos"              | false
+  }
+
+  def "isAnagram2 works as expected"() {
+    given:
+      StringsUtils stringsUtils = new StringsUtils()
+      boolean isAnagram = stringsUtils.isAnagram2(s1, s2)
+    expect:
+      isAnagram == expected
+    where:
+      s1                   | s2                   | expected
+      "anita lava la tina" | "lava la tina anita" | true
+      "toga"               | "gatos"              | false
+  }
+
+  def "replace spaces with %20"() {
+    given:
+      StringsUtils stringsUtils = new StringsUtils()
+      String result = stringsUtils.replaceSpaces(s)
+    expect:
+      result == expected
+    where:
+      s             | expected
+      " "           | "%20"
+      " ana llely " | "%20ana%20llely%20"
   }
 
 }
