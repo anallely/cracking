@@ -30,8 +30,6 @@ class ArrayUtilsTest extends Specification {
       ]
   }
 
-
-  @IgnoreRest
   def "replace inplace 90"() {
     given:
       ArrayUtils arrayUtils = new ArrayUtils()
@@ -47,13 +45,6 @@ class ArrayUtilsTest extends Specification {
       Integer[][] rotated = arrayUtils.rotateInplace90(original)
 
     expect:
-//      rotated ==  [
-//        [1, 2, 3, 7],
-//        [0, 6, 10, 11],
-//        [4, 5, 9, 15],
-//        [8, 12, 13, 14]
-//      ]
-////
       rotated ==  [
         [3, 7, 11, 15],
         [2, 6, 10, 14],

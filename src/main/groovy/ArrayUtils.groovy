@@ -3,32 +3,34 @@
  */
 class ArrayUtils {
 
-  Integer[][] rotate90(Integer[][] original){
+  Integer[][] rotate90(Integer[][] original) {
     int i, j
     int n = original.length
     Integer[][] rotated = new Integer[n][n]
 
-    for(i = 0; i < n; i++){
-      for(j = 0; j < n; j++){
-        rotated[n-1-j][i] = original[i][j]
+    for (i = 0; i < n; i++) {
+      for (j = 0; j < n; j++) {
+        rotated[n - 1 - j][i] = original[i][j]
       }
     }
     rotated
   }
 
-  Integer[][] rotateInplace90(Integer[][] original){
+  Integer[][] rotateInplace90(Integer[][] original) {
 
     boolean right, down, left, up
 
-    int nRotations = original.length - 1
     int i
     int j
 
-    while(nRotations > 0) {
+    int offset = 0
+    int limit = original.length - 1
 
-      int offset = 0
-      int limit = original.length - 1
-      while (offset < limit) {
+    while (offset < limit) {
+
+      int pivot = original[offset][limit]
+      while (original[offset][offset] != pivot) {
+
         i = offset
         j = offset
         int first = original[i][j]
@@ -63,14 +65,10 @@ class ArrayUtils {
           i--
         }
 
-
         original[offset + 1][offset] = first
-
-
-        offset++
-        limit--
       }
-      nRotations --
+      offset++
+      limit--
     }
 
 
