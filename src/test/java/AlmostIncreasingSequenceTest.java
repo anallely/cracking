@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(Parameterized.class)
-public class IntroTest {
+public class AlmostIncreasingSequenceTest {
 
     private int[] theInput;
 
@@ -43,7 +43,7 @@ public class IntroTest {
         );
     }
 
-    public IntroTest(int[] input, boolean expected) {
+    public AlmostIncreasingSequenceTest(int[] input, boolean expected) {
         theInput = input;
         theExpected = expected;
     }
@@ -51,8 +51,8 @@ public class IntroTest {
 
     @Test
     public void almostIncreasingTest() {
-        Intro intro = new Intro();
-        boolean result = intro.almostIncreasingSequence(theInput);
+        AlmostIncreasingSequence almostIncreasingSequence = new AlmostIncreasingSequence();
+        boolean result = almostIncreasingSequence.almostIncreasingSequence(theInput);
         assertEquals(theExpected, result);
     }
 

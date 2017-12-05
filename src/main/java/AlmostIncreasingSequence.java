@@ -1,7 +1,7 @@
 /**
  * Created by anallely.olivares on 11/29/2017.
  */
-public class Intro {
+public class AlmostIncreasingSequence {
 
     boolean almostIncreasingSequence(int[] sequence) {
         int n = sequence.length;
