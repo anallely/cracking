@@ -9,7 +9,7 @@ import java.util.Map;
 public class AllLongestStrings {
 
     String[] allLongestStrings(String[] inputArray) {
-        Map<Integer, String> stringsMap = new HashMap<>();
+        Map<Integer, String> stringsMap = new HashMap<Integer, String>();
 
         int size = inputArray.length;
 
@@ -25,7 +25,7 @@ public class AllLongestStrings {
 
         Object[] keys = stringsMap.keySet().toArray();
         Arrays.sort(keys);
-        int max = (int)keys[keys.length-1] ;
+        int max = (int) keys[keys.length-1];
 
         return stringsMap.get(max).split(",");
     }
