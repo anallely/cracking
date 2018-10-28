@@ -69,7 +69,7 @@ public class CheckPermutation {
             }
         }
 
-        return result;
+         return result;
     }
 
 
