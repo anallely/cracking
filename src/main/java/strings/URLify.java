@@ -1,3 +1,5 @@
+package strings;
+
 public class URLify {
 
     static public char[] doURLify(char[] input, int size) {

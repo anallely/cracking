@@ -41,7 +41,7 @@ public class ReverseParentheses {
                 index += 1;
                 aux[index] = "";
             } else if( c == ')' ) {
-                
+
             }
             else{
                 aux[index] = aux[index] + c;
