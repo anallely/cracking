@@ -27,10 +27,14 @@ public class DeleteDuplicatesTest {
         int[] input2 = {1, 1, 3, 4, 3, 6, 7, 4};
         String expected2 = "1, 3, 4, 6, 7";
 
+        int[] input3 = {1, 1, 1, 1};
+        String expected3 = "1";
+
         return Arrays.asList(
                 new Object[][] {
                     { new LinkedList(input1), expected1 },
-                    { new LinkedList(input2), expected2 }
+                    { new LinkedList(input2), expected2 },
+                    { new LinkedList(input3), expected3 }
                 }
         );
     }
