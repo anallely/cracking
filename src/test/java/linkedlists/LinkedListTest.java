@@ -10,6 +10,14 @@ import static org.junit.Assert.assertEquals;
 public class LinkedListTest {
 
     @Test
+    public void arrayConstrictorTest() {
+        int[] array = {1, 2, 3};
+        LinkedList linkedList = new LinkedList(array);
+        assertEquals("1, 2, 3", linkedList.toString());
+    }
+
+
+    @Test
     public void addFirstTest() {
         LinkedList linkedList = new LinkedList();
         linkedList.addFirst(1);
@@ -19,5 +27,7 @@ public class LinkedListTest {
 
         assertEquals("4, 3, 2, 1", linkedList.toString());
     }
+
+
 
 }

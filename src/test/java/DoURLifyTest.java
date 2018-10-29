@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
-public class doURLifyTest {
+public class DoURLifyTest {
 
     private String input;
     private int realSize;
@@ -28,7 +28,7 @@ public class doURLifyTest {
         );
     }
 
-    public doURLifyTest(String input, int realSize, String expected) {
+    public DoURLifyTest(String input, int realSize, String expected) {
         this.input = input;
         this.realSize = realSize;
         this.expected = expected;

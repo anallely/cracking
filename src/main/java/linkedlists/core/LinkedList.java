@@ -15,6 +15,13 @@ public class LinkedList {
     public LinkedList() {
     }
 
+    public LinkedList(int[] elements){
+        for (int i = elements.length - 1; i >= 0; i--) {
+            addFirst(elements[i]);
+        }
+    }
+
+
     public void addFirst(int element) {
         Node newElement = new Node(element);
 
