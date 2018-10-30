@@ -26,4 +26,15 @@ public class DeleteGivenMiddleNode {
         }
     }
 
+    /**
+     * This version is simpler, we only copy next into current and update current.next to next.next
+     * @param node
+     */
+    public static void deleteGivenMiddleNodeOptimized (Node node) {
+        Node nextNode = node.getNext();
+        node.setData( nextNode.getData());
+        node.setNext(nextNode.getNext());
+    }
+
+
 }
