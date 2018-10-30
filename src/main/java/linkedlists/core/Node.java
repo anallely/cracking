@@ -1,8 +1,8 @@
 package linkedlists.core;
 
 public class Node {
-    int data;
-    Node next;
+    private int data;
+    private Node next;
 
 
     public Node(int data) {

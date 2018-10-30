@@ -40,8 +40,8 @@ public class LinkedList {
 
         if (indexNode != null) {
             do {
-                s += (s.isEmpty() ? "" : ", ") + indexNode.data;
-                indexNode = indexNode.next;
+                s += (s.isEmpty() ? "" : ", ") + indexNode.getData();
+                indexNode = indexNode.getNext();
             } while (indexNode != null);
         }
 
