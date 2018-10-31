@@ -3,7 +3,7 @@ package fifolifo;
 public class ThreeStacksInAnArray {
 
     int[] array = null;
-    int[] stackIndex = {0, 0, 0, 0};
+    int nextPositionToInsert = 0;
     int[] lastInsertedPosition = {0, 0, 0, 0};
 
     ThreeStacksInAnArray( int maxSize ) {
@@ -13,22 +13,15 @@ public class ThreeStacksInAnArray {
             array[i] = -1;
         }
     }
-    
-    private int getNextPositionToInsert(int stackId) {
-        int pos = stackIndex[stackId];
-        return pos;
-    }
 
     private void updatePositionLastElementInserted(int stackId, int position) {
         lastInsertedPosition[stackId] = position;
     }
 
-    private void updateNextPositionToInsert(int stackId) {
-        int pos = stackIndex[stackId];
-        while( array[pos] != -1 ) {
-            pos +=2;
+    private void updateNextPositionToInsert() {
+        while( array[nextPositionToInsert] != -1 ) {
+            nextPositionToInsert += 2;
         }
-        stackIndex[stackId] = pos;
     }
 
     int getPositionLastInsertedElement(int stackId) {
@@ -37,15 +30,11 @@ public class ThreeStacksInAnArray {
 
     void push(int stackId, int element) {
 
-        int nextPositionToInsert = getNextPositionToInsert(stackId);
-
         array[nextPositionToInsert] = stackId;
         array[nextPositionToInsert + 1] = element;
 
         updatePositionLastElementInserted(stackId, nextPositionToInsert + 1);
-        updateNextPositionToInsert(1);
-        updateNextPositionToInsert(2);
-        updateNextPositionToInsert(3);
+        updateNextPositionToInsert();
     }
 
     int pop (int stackId) throws EmptyStackException{
@@ -62,9 +51,9 @@ public class ThreeStacksInAnArray {
 
         do {
             positionLastInsertedElement -= 2;
-        } while( positionLastInsertedElement - 3 >= 0 && array[positionLastInsertedElement - 1] != stackId );
+        } while( positionLastInsertedElement - 1 >= 0 && array[positionLastInsertedElement - 1] != stackId );
 
-        if (  array[positionLastInsertedElement - 1] != stackId ) {
+        if ( positionLastInsertedElement - 1 >= 0 && array[positionLastInsertedElement - 1] != stackId ) {
             positionLastInsertedElement = -1;
         }
         updatePositionLastElementInserted(stackId, positionLastInsertedElement);
