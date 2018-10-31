@@ -8,6 +8,7 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -90,5 +91,27 @@ public class BasicStreamTest {
 
         assertThat(result, equalTo(arrayOfEmps));
 
+    }
+
+    @Test
+    public void toFlatMap() {
+        Integer[][] ids = {{1}, {2}, {3}};
+
+        EmployeeDatabase database = new EmployeeDatabase();
+        database.add(arrayOfEmps[0]);
+        database.add(arrayOfEmps[1]);
+        database.add(arrayOfEmps[2]);
+
+        List<Employee> empList = Stream.of(ids)
+            .flatMap(inner ->  Stream.of(inner).map( database::findById) )
+            .collect(Collectors.toList());
+
+        assertThat(empList, contains(
+                hasProperty("id", equalTo(1)),
+                hasProperty("id", equalTo(2)),
+                hasProperty("id", equalTo(3))
+        ));
+
+        assertEquals(empList.size(), ids.length);
     }
 }
