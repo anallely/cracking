@@ -70,6 +70,15 @@ public class BasicStreamTest {
             hasProperty("salary", equalTo(200000.0)),
             hasProperty("salary", equalTo(300000.0))
         ));
+    }
 
+    @Test
+    public void findFirstTest() {
+        List<Employee> empList = Arrays.asList(arrayOfEmps);
+        Employee employee  = empList.stream()
+            .filter( e -> e.getName().equals("Bill Gates"))
+            .findFirst().orElse(null);
+
+        assertEquals(2, employee.getId());
     }
 }
