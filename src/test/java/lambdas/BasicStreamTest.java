@@ -81,4 +81,14 @@ public class BasicStreamTest {
 
         assertEquals(2, employee.getId());
     }
+
+
+    @Test
+    public void toArrayTest() {
+        List<Employee> empList = Arrays.asList(arrayOfEmps);
+        Employee[] result = empList.stream().toArray( Employee[]::new );
+
+        assertThat(result, equalTo(arrayOfEmps));
+
+    }
 }
