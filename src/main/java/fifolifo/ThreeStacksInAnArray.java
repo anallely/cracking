@@ -1,8 +1,7 @@
 package fifolifo;
 
 public class ThreeStacksInAnArray {
-
-    int[] array = null;
+    int[] array;
     int nextPositionToInsert = 0;
     int[] lastInsertedPosition = {0, 0, 0, 0};
 
@@ -14,31 +13,22 @@ public class ThreeStacksInAnArray {
         }
     }
 
-    private void updatePositionLastElementInserted(int stackId, int position) {
-        lastInsertedPosition[stackId] = position;
-    }
-
     private void updateNextPositionToInsert() {
         while( array[nextPositionToInsert] != -1 ) {
             nextPositionToInsert += 2;
         }
     }
 
-    int getPositionLastInsertedElement(int stackId) {
-        return lastInsertedPosition[stackId];
-    }
-
     void push(int stackId, int element) {
-
         array[nextPositionToInsert] = stackId;
         array[nextPositionToInsert + 1] = element;
 
-        updatePositionLastElementInserted(stackId, nextPositionToInsert + 1);
+        lastInsertedPosition[stackId] = nextPositionToInsert + 1;
         updateNextPositionToInsert();
     }
 
     int pop (int stackId) throws EmptyStackException{
-        int positionLastInsertedElement = getPositionLastInsertedElement(stackId);
+        int positionLastInsertedElement = lastInsertedPosition[stackId];
 
         if (positionLastInsertedElement < 0) {
             throw new EmptyStackException("The stack is empty");
@@ -49,14 +39,14 @@ public class ThreeStacksInAnArray {
         array[  positionLastInsertedElement] = -1;
         array[  positionLastInsertedElement - 1] = -1;
 
+        if ( nextPositionToInsert > positionLastInsertedElement - 1 ) {
+            nextPositionToInsert = positionLastInsertedElement - 1;
+        }
+
         do {
             positionLastInsertedElement -= 2;
-        } while( positionLastInsertedElement - 1 >= 0 && array[positionLastInsertedElement - 1] != stackId );
-
-        if ( positionLastInsertedElement - 1 >= 0 && array[positionLastInsertedElement - 1] != stackId ) {
-            positionLastInsertedElement = -1;
-        }
-        updatePositionLastElementInserted(stackId, positionLastInsertedElement);
+        } while( positionLastInsertedElement - 1 >= -1 && array[positionLastInsertedElement - 1] != stackId );
+        lastInsertedPosition[stackId] = positionLastInsertedElement;
 
         return element;
     }
