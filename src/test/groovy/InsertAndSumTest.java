@@ -1,8 +1,6 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import fifolifo.EmptyStackException;
-import fifolifo.ThreeStacksInAnArray;
 import misc.InsertAndSum;
 import org.junit.Test;
 

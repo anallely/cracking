@@ -1,5 +1,7 @@
 package fifolifo;
 
+import fifolifo.core.EmptyStackException;
+
 public class ThreeStacksInAnArray {
     int[] array;
     int nextPositionToInsert = 0;
@@ -27,7 +29,7 @@ public class ThreeStacksInAnArray {
         updateNextPositionToInsert();
     }
 
-    int pop (int stackId) throws EmptyStackException{
+    int pop (int stackId) throws EmptyStackException {
         int positionLastInsertedElement = lastInsertedPosition[stackId];
 
         if (positionLastInsertedElement < 0) {

@@ -1,6 +1,7 @@
 package fifolifo;
 
 
+import fifolifo.core.EmptyStackException;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

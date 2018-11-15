@@ -1,4 +1,4 @@
-package fifolifo;
+package fifolifo.core;
 
 public class EmptyStackException extends Exception{
 
