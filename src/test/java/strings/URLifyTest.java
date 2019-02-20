@@ -1,3 +1,5 @@
+package strings;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -10,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
-public class DoURLifyTest {
+public class URLifyTest {
 
     private String input;
     private int realSize;
@@ -28,7 +30,7 @@ public class DoURLifyTest {
         );
     }
 
-    public DoURLifyTest(String input, int realSize, String expected) {
+    public URLifyTest(String input, int realSize, String expected) {
         this.input = input;
         this.realSize = realSize;
         this.expected = expected;
