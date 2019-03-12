@@ -17,7 +17,6 @@ public class OneAwayTest {
     private String b;
     private boolean expected;
 
-
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(
