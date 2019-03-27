@@ -35,7 +35,13 @@ public class RotateMatrix90Test {
 
   @Test
   public void doRotation() {
-    int [][] result = RotateMatrix90.rotate90(input);
+    int [][] result = RotateMatrix90.rotate90UsingMemory(input);
+    assertEquals(expected, result);
+  }
+
+  @Test
+  public void doRotationInPlace() {
+    int [][] result = RotateMatrix90.rotate90Inplace(input);
     assertEquals(expected, result);
   }
 }
