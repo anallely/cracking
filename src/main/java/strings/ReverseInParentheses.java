@@ -66,19 +66,4 @@ public class ReverseInParentheses {
     System.out.println("SPLIT " + split.length + "" + split);
     return split;
   }
-
 }
-
-//    if (input.equals("foo(bar(baz))blim")) {
-//      return new String[]{"foo", "(bar(baz))", "blim" };
-//    }
-//    if (input.equals("(bar(baz))")) {
-//      return new String[]{"(bar(baz))"};
-//    }
-//    if (input.equals("bar(foo)")) {
-//      return new String[]{"bar", "(foo)"};
-//    }
-//    if (input.equals("bar(baz)")) {
-//      return new String[]{"bar", "(baz)"};
-//    }
-//    return new String[]{input};
